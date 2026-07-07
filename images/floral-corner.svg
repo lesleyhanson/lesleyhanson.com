@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <!-- rounded folk petal flower, 5 petals -->
+    <g id="ff5">
+      <ellipse cx="0" cy="-24" rx="14" ry="22"/>
+      <ellipse cx="0" cy="-24" rx="14" ry="22" transform="rotate(72)"/>
+      <ellipse cx="0" cy="-24" rx="14" ry="22" transform="rotate(144)"/>
+      <ellipse cx="0" cy="-24" rx="14" ry="22" transform="rotate(216)"/>
+      <ellipse cx="0" cy="-24" rx="14" ry="22" transform="rotate(288)"/>
+    </g>
+    <!-- thin-petaled aster, 8 petals -->
+    <g id="aster">
+      <ellipse cx="0" cy="-15" rx="4.5" ry="14"/>
+      <ellipse cx="0" cy="-15" rx="4.5" ry="14" transform="rotate(45)"/>
+      <ellipse cx="0" cy="-15" rx="4.5" ry="14" transform="rotate(90)"/>
+      <ellipse cx="0" cy="-15" rx="4.5" ry="14" transform="rotate(135)"/>
+      <ellipse cx="0" cy="-15" rx="4.5" ry="14" transform="rotate(180)"/>
+      <ellipse cx="0" cy="-15" rx="4.5" ry="14" transform="rotate(225)"/>
+      <ellipse cx="0" cy="-15" rx="4.5" ry="14" transform="rotate(270)"/>
+      <ellipse cx="0" cy="-15" rx="4.5" ry="14" transform="rotate(315)"/>
+    </g>
+    <!-- almond leaf -->
+    <path id="leaf" d="M0,0 C6,-7 18,-9 28,-6 C18,1 7,2 0,0 Z"/>
+  </defs>
+
+  <g transform="translate(-16,-16)">
+    <!-- stems -->
+    <g stroke="#4F7259" stroke-width="3" fill="none" stroke-linecap="round">
+      <path d="M105,105 C170,72 250,56 372,50"/>
+      <path d="M105,105 C76,180 60,250 52,372"/>
+      <path d="M112,112 C160,142 200,172 236,206"/>
+      <path d="M125,88 C160,62 190,46 224,36"/>
+      <path d="M92,128 C70,170 62,210 66,258"/>
+    </g>
+
+    <!-- leaves along the top-edge stem -->
+    <g fill="#7FA377">
+      <use href="#leaf" transform="translate(160,76) rotate(-18)"/>
+      <use href="#leaf" transform="translate(215,62) rotate(-10)"/>
+      <use href="#leaf" transform="translate(272,54) rotate(-5)"/>
+      <use href="#leaf" transform="translate(326,50) rotate(-2) scale(0.85)"/>
+    </g>
+    <g fill="#46695A">
+      <use href="#leaf" transform="translate(188,72) rotate(160) scale(0.9)"/>
+      <use href="#leaf" transform="translate(246,60) rotate(168) scale(0.9)"/>
+      <use href="#leaf" transform="translate(300,53) rotate(172) scale(0.85)"/>
+      <use href="#leaf" transform="translate(352,50) rotate(176) scale(0.75)"/>
+    </g>
+    <!-- leaves along the left-edge stem -->
+    <g fill="#7FA377">
+      <use href="#leaf" transform="translate(80,180) rotate(64)"/>
+      <use href="#leaf" transform="translate(62,258) rotate(78)"/>
+      <use href="#leaf" transform="translate(54,326) rotate(84) scale(0.85)"/>
+    </g>
+    <g fill="#46695A">
+      <use href="#leaf" transform="translate(72,218) rotate(240) scale(0.9)"/>
+      <use href="#leaf" transform="translate(56,292) rotate(252) scale(0.9)"/>
+      <use href="#leaf" transform="translate(52,352) rotate(258) scale(0.75)"/>
+    </g>
+    <!-- leaves along diagonal stem -->
+    <g fill="#7FA377">
+      <use href="#leaf" transform="translate(158,140) rotate(28)"/>
+      <use href="#leaf" transform="translate(205,178) rotate(36)"/>
+    </g>
+    <g fill="#46695A">
+      <use href="#leaf" transform="translate(182,160) rotate(205) scale(0.85)"/>
+    </g>
+    <!-- filler leaves near the corner -->
+    <g fill="#46695A">
+      <use href="#leaf" transform="translate(112,70) rotate(-50) scale(0.8)"/>
+      <use href="#leaf" transform="translate(66,116) rotate(215) scale(0.8)"/>
+    </g>
+
+    <!-- gold berries on sprig -->
+    <g fill="#B79B5B">
+      <circle cx="224" cy="36" r="6"/>
+      <circle cx="208" cy="30" r="5"/>
+      <circle cx="216" cy="50" r="4.5"/>
+    </g>
+    <!-- navy berries at bottom of inner-left sprig -->
+    <g fill="#31538A">
+      <circle cx="66" cy="258" r="6"/>
+      <circle cx="80" cy="268" r="5"/>
+      <circle cx="56" cy="272" r="4.5"/>
+    </g>
+
+    <!-- big sorrowroot bloom -->
+    <g transform="translate(105,105)">
+      <use href="#ff5" fill="#5D8FCB" transform="scale(1.7)"/>
+      <use href="#ff5" fill="#7FB0DE" transform="scale(1.05) rotate(36)"/>
+      <circle r="12" fill="#EACB8B"/>
+      <circle r="5" fill="#B79B5B"/>
+    </g>
+
+    <!-- coral rose -->
+    <g transform="translate(196,58)">
+      <circle r="27" fill="#DA8065"/>
+      <g stroke="#C05F4B" stroke-width="3.5" fill="none" stroke-linecap="round">
+        <path d="M-15,4 a15,15 0 1 1 26,9"/>
+        <path d="M-6,-2 a8,8 0 1 1 12,6"/>
+      </g>
+      <circle cx="2" cy="2" r="3" fill="#C05F4B"/>
+    </g>
+
+    <!-- blush folk flower -->
+    <g transform="translate(62,196)">
+      <use href="#ff5" fill="#E8A796" transform="scale(0.85)"/>
+      <circle r="6" fill="#B79B5B"/>
+    </g>
+
+    <!-- periwinkle aster -->
+    <g transform="translate(162,162)">
+      <use href="#aster" fill="#A8C6EC"/>
+      <circle r="7" fill="#31538A"/>
+      <circle r="2.6" fill="#EACB8B"/>
+    </g>
+
+    <!-- small navy flowers -->
+    <g transform="translate(252,152)">
+      <use href="#ff5" fill="#31538A" transform="scale(0.45)"/>
+      <circle r="3.4" fill="#EACB8B"/>
+    </g>
+    <g transform="translate(44,92)">
+      <use href="#ff5" fill="#31538A" transform="scale(0.4)"/>
+      <circle r="3" fill="#EACB8B"/>
+    </g>
+
+    <!-- tiny blush flower low -->
+    <g transform="translate(100,262)">
+      <use href="#ff5" fill="#E8A796" transform="scale(0.5)"/>
+      <circle r="3.6" fill="#B79B5B"/>
+    </g>
+
+    <!-- coral buds near rose -->
+    <g fill="#DA8065">
+      <ellipse cx="246" cy="84" rx="6" ry="9" transform="rotate(28 246 84)"/>
+      <ellipse cx="262" cy="98" rx="4.5" ry="7" transform="rotate(34 262 98)"/>
+    </g>
+    <path d="M196,58 C220,70 240,80 262,98" stroke="#4F7259" stroke-width="2.5" fill="none"/>
+
+    <!-- scattered gold dots -->
+    <g fill="#B79B5B" opacity="0.9">
+      <circle cx="305" cy="95" r="3"/>
+      <circle cx="330" cy="65" r="2.4"/>
+      <circle cx="285" cy="130" r="2.4"/>
+      <circle cx="140" cy="238" r="2.6"/>
+      <circle cx="205" cy="238" r="2.2"/>
+      <circle cx="118" cy="300" r="2.6"/>
+      <circle cx="42" cy="352" r="2.4"/>
+    </g>
+  </g>
+</svg>
