@@ -72,14 +72,40 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Placeholder form handling (contact form isn't wired to an inbox yet).
-  // Replace once a real form service (e.g. Formspree) is connected.
-  document.querySelectorAll('[data-placeholder-form]').forEach(function (form) {
+  // Contact form — submits to Formspree without leaving the page.
+  document.querySelectorAll('form[data-contact-form]').forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
       var success = form.querySelector('.form-success');
-      if (success) success.classList.add('is-visible');
-      form.reset();
+      var error = form.querySelector('.form-error');
+      if (!error) {
+        error = document.createElement('p');
+        error.className = 'form-error';
+        btn.insertAdjacentElement('afterend', error);
+      }
+      error.textContent = '';
+      var original = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error('failed');
+          form.reset();
+          if (success) success.classList.add('is-visible');
+        })
+        .catch(function () {
+          error.textContent = "Hmm — that didn't send. Please try again, or use the email address to the right.";
+        })
+        .then(function () {
+          btn.disabled = false;
+          btn.textContent = original;
+        });
     });
   });
 

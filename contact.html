@@ -53,14 +53,14 @@
     <div class="container grid-2">
 
       <div class="reveal">
-        <form data-placeholder-form>
+        <form action="https://formspree.io/f/mgojbkoe" method="post" data-contact-form>
           <div class="field">
             <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="name" autocomplete="name" required>
           </div>
           <div class="field">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" autocomplete="email" required>
           </div>
           <div class="field">
             <label for="message">Message</label>
@@ -69,7 +69,6 @@
           <button type="submit" class="btn btn-primary">Send Message</button>
           <p class="form-success" style="color: var(--color-primary);">Thank you &mdash; your message is on its way.</p>
         </form>
-        <p style="font-size: 0.85rem; color: var(--color-ink-soft); margin-top: 1rem;">This form isn't connected to an inbox yet &mdash; hook it up to a service like Formspree, or a backend of your choosing, before launch.</p>
       </div>
 
       <div class="reveal">

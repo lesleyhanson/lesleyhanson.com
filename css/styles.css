@@ -629,8 +629,9 @@ input, textarea { font-family: var(--font-body); font-size: 1rem; }
   font-family: var(--font-utility);
   font-size: 0.85rem;
   letter-spacing: 0.04em;
-  color: #E8A796;
+  color: #E8A796; /* on the dark newsletter band */
 }
+form[data-contact-form] .form-error { color: var(--color-rose-deep); }
 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--color-night); color: rgba(255,255,255,0.85); padding: var(--space-5) 0 var(--space-3); }
