@@ -20,6 +20,29 @@ images/cover.jpg   Book cover (optimized from the original in ~/Downloads)
 
 Open `index.html` in a browser to preview. No build step — just static files.
 
+## How to edit the site
+
+The site is live at https://lesleyhanson.com, served by GitHub Pages from the
+`lesleyhanson/lesleyhanson.com` repo. Publishing = pushing to the `main` branch;
+the live site updates itself about a minute later.
+
+Three ways to make a change, easiest first:
+
+1. **Ask Claude.** Open Claude Code in the website folder and describe the change
+   in plain English ("fix the typo in my bio", "add a blog post — here's the text",
+   "swap the author photo for the attached one"). Claude edits, previews, commits,
+   and pushes; the site updates itself.
+2. **Edit in the browser, no tools needed.** Go to the repo on github.com, click
+   into any file (e.g. `blog.html`), press the ✏️ pencil icon, make your change,
+   then the green "Commit changes" button. Good for word tweaks.
+3. **Edit locally.** Change files in this folder with any editor, check them by
+   opening the page in a browser, then in Terminal:
+   `cd ~/Projects/website/pages && git add -A && git commit -m "describe change" && git push`
+
+**Adding a blog post:** in `blog.html`, copy an entire `<article class="post-card">
+… </article>` block, paste it above the others, and replace the title, date, and
+paragraphs. Give it a unique `id="..."` so it can be linked to directly.
+
 ## Before you launch, replace these placeholders
 
 - **Author photo** — the portrait from `mood_board/Untitled.png` was cropped out of its window screenshot and used as `images/author.jpg` on the home and About pages. If that portrait wasn't meant to be your author photo, just replace `images/author.jpg` with the right image (same filename, roughly 4:5 portrait crop).
