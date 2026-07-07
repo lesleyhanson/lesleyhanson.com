@@ -47,7 +47,7 @@ paragraphs. Give it a unique `id="..."` so it can be linked to directly.
 
 - **Author photo** — the portrait from `mood_board/Untitled.png` was cropped out of its window screenshot and used as `images/author.jpg` on the home and About pages. If that portrait wasn't meant to be your author photo, just replace `images/author.jpg` with the right image (same filename, roughly 4:5 portrait crop).
 - **Book cover** — done: `images/cover.jpg` appears on the home and book-page heroes. If the final print cover changes, just replace that file (roughly 2:3 portrait).
-- **Newsletter signup** — the form in the footer (every page) and on the book page currently just shows a "you're on the list" message locally; it isn't connected to a real mailing list yet. Wire it up to Mailchimp, ConvertKit, Substack, or similar, and update the `<form>` tag's `action`/`method` accordingly. Once it's connected, you can remove the `data-placeholder-form` attribute and the JS handler in `main.js` that fakes the success message.
+- **Newsletter signup** — done: the form on every page submits to MailerLite (form action URL in each page's `<form data-ml-form>`; AJAX handler in `js/main.js`). New subscribers land in the MailerLite group chosen when the embedded form was created.
 - **Contact form** — same situation on `contact.html`. Easiest path: a service like Formspree (no backend required). Otherwise point it at your own endpoint.
 - **Buy links** — the "Coming Soon" buttons on `sorrowroot.html` (Amazon, Barnes & Noble, Bookshop.org) are inert placeholders. Once the book is live, change them from `<span class="btn btn-disabled">` to real `<a href="...">` links.
 - **Social links** — Instagram / TikTok / Goodreads links in every footer point to `#`. Update with real URLs.

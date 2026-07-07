@@ -32,9 +32,48 @@ document.addEventListener('DOMContentLoaded', function () {
     revealEls.forEach(function (el) { el.classList.add('is-visible'); });
   }
 
-  // Placeholder form handling (no backend wired up yet).
-  // Replace the handlers below once a real form service (e.g. Mailchimp,
-  // ConvertKit, Formspree) or backend endpoint is connected.
+  // Newsletter signup — submits to MailerLite without leaving the page.
+  document.querySelectorAll('form[data-ml-form]').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      var scope = form.parentNode;
+      var success = scope.querySelector('.form-success');
+      var error = scope.querySelector('.form-error');
+      if (!error) {
+        error = document.createElement('p');
+        error.className = 'form-error';
+        form.insertAdjacentElement('afterend', error);
+      }
+      error.textContent = '';
+      var original = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Joining…';
+
+      var data = new FormData(form);
+      data.append('ml-submit', '1');
+      data.append('anticsrf', 'true');
+
+      fetch(form.action, { method: 'POST', body: data })
+        .then(function (res) { return res.json(); })
+        .then(function (json) {
+          if (json && json.success === false) throw new Error('rejected');
+          form.reset();
+          form.style.display = 'none';
+          if (success) success.classList.add('is-visible');
+        })
+        .catch(function () {
+          error.textContent = "Hmm — that didn't go through. Please try again in a moment.";
+        })
+        .then(function () {
+          btn.disabled = false;
+          btn.textContent = original;
+        });
+    });
+  });
+
+  // Placeholder form handling (contact form isn't wired to an inbox yet).
+  // Replace once a real form service (e.g. Formspree) is connected.
   document.querySelectorAll('[data-placeholder-form]').forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
