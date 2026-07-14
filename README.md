@@ -49,7 +49,7 @@ paragraphs. Give it a unique `id="..."` so it can be linked to directly.
 - **Book cover** — done: `images/cover.jpg` appears on the home and book-page heroes. If the final print cover changes, just replace that file (roughly 2:3 portrait).
 - **Newsletter signup** — done: the form on every page submits to MailerLite (form action URL in each page's `<form data-ml-form>`; AJAX handler in `js/main.js`). New subscribers land in the MailerLite group chosen when the embedded form was created.
 - **Contact form** — done: `contact.html` submits to Formspree (endpoint in the `<form data-contact-form>` tag; AJAX handler in `js/main.js`). Messages are delivered to the email on the Formspree account.
-- **Buy links** — the "Coming Soon" buttons on `sorrowroot.html` (Amazon, Barnes & Noble, Bookshop.org) are inert placeholders. Once the book is live, change them from `<span class="btn btn-disabled">` to real `<a href="...">` links.
+- **Buy links** — deliberately absent while the book is on submission to agents (retailer buttons on an unsold book read as a self-publication plan). When the book has a release, add a "Where to Find It" section back to `sorrowroot.html` with real retailer links. The cover is captioned "Concept art by the author" for the same reason — remove the caption when a publisher's final cover replaces it.
 - **Social links** — Instagram / TikTok / Goodreads links in every footer point to `#`. Update with real URLs.
 - **Blog posts** — the three posts on `blog.html` are sample content written to demonstrate tone and structure. Replace with real posts, or duplicate the `<article class="post-card">` block for new ones.
 - **Bio copy** — the "About" page bio is placeholder text. Replace with your own.
