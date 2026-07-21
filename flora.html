@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Field Guide to the Flora of Sopatra — Lesley Hanson</title>
+<link rel="icon" type="image/svg+xml" href="images/bloom.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Homemade+Apple&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --parchment:#F4EDDD;
+    --parchment-deep:#EAE0C9;
+    --ink:#2E3323;
+    --sepia:#55483A;
+    --sorrowroot:#5D5F92;
+    --silverleaf:#87907E;
+    --rosewood:#6E3B32;
+    --gold:#9C7C3C;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'EB Garamond',serif;
+    font-size:18px;
+    line-height:1.65;
+  }
+  .page{
+    max-width:720px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+  .smallcaps{
+    font-family:'IM Fell English SC',serif;
+    letter-spacing:.14em;
+  }
+  .hand{
+    font-family:'Homemade Apple',cursive;
+    color:var(--sepia);
+    font-size:15px;
+    line-height:2.1;
+  }
+
+  /* ---------- cover ---------- */
+  .cover{
+    text-align:center;
+    padding:84px 28px 64px;
+    border-bottom:1px solid var(--ink);
+    position:relative;
+  }
+  .cover .rule{
+    width:190px;height:1px;background:var(--ink);
+    margin:26px auto;position:relative;
+  }
+  .cover .rule::after{
+    content:"❧";
+    position:absolute;left:50%;top:50%;
+    transform:translate(-50%,-52%);
+    background:var(--parchment);
+    padding:0 14px;
+    font-size:15px;color:var(--gold);
+  }
+  .cover h1{
+    font-family:'IM Fell English',serif;
+    font-weight:400;
+    font-size:clamp(34px,6vw,52px);
+    line-height:1.12;
+    letter-spacing:.01em;
+  }
+  .cover .eyebrow{
+    font-size:13px;
+    color:var(--sepia);
+    margin-bottom:30px;
+  }
+  .cover .sub{
+    font-style:italic;
+    color:var(--sepia);
+    font-size:19px;
+    max-width:420px;
+    margin:0 auto;
+  }
+  .cover .compiled{
+    margin-top:44px;
+    font-size:14px;
+    color:var(--sepia);
+  }
+  .cover .compiled b{font-weight:500;color:var(--ink);}
+  .cover svg{display:block;margin:38px auto 6px;}
+
+  /* ---------- epigraph ---------- */
+  .epigraph{
+    text-align:center;
+    padding:52px 28px 46px;
+    border-bottom:1px solid var(--parchment-deep);
+  }
+  .epigraph p{
+    font-family:'IM Fell English',serif;
+    font-style:italic;
+    font-size:22px;
+    color:var(--sepia);
+    max-width:400px;
+    margin:0 auto 12px;
+  }
+  .epigraph span{
+    font-size:13px;
+    letter-spacing:.18em;
+    color:var(--gold);
+    font-family:'IM Fell English SC',serif;
+  }
+
+  /* ---------- plates ---------- */
+  .plate{
+    padding:64px 0 58px;
+    border-bottom:1px solid var(--parchment-deep);
+  }
+  .plate-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:16px;
+    margin-bottom:6px;
+  }
+  .plate-num{
+    font-family:'IM Fell English SC',serif;
+    font-size:13px;
+    letter-spacing:.22em;
+    color:var(--gold);
+    white-space:nowrap;
+  }
+  .plate h2{
+    font-family:'IM Fell English',serif;
+    font-weight:400;
+    font-size:34px;
+    line-height:1.1;
+  }
+  .binomial{
+    font-style:italic;
+    color:var(--sepia);
+    font-size:17px;
+    margin-bottom:26px;
+  }
+  .plate-body{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:36px;
+    align-items:start;
+  }
+  @media (max-width:620px){
+    .plate-body{grid-template-columns:1fr;}
+    .plate-figure{margin:0 auto;}
+  }
+  .plate-figure{
+    background:#F8F3E6;
+    border:1px solid var(--parchment-deep);
+    padding:18px 12px 10px;
+    text-align:center;
+  }
+  .plate-figure figcaption{
+    font-size:12.5px;
+    color:var(--sepia);
+    font-style:italic;
+    margin-top:8px;
+    padding-top:8px;
+    border-top:1px solid var(--parchment-deep);
+  }
+  .use-line{
+    font-family:'IM Fell English',serif;
+    font-size:21px;
+    color:var(--sorrowroot);
+    margin-bottom:18px;
+  }
+  .plate.warn .use-line{color:var(--rosewood);}
+  dl.field{
+    display:grid;
+    grid-template-columns:110px 1fr;
+    row-gap:10px;
+    column-gap:18px;
+    font-size:16.5px;
+    margin-bottom:22px;
+  }
+  dl.field dt{
+    font-family:'IM Fell English SC',serif;
+    font-size:12.5px;
+    letter-spacing:.16em;
+    color:var(--gold);
+    padding-top:4px;
+  }
+  dl.field dd{color:var(--ink);}
+  .margin-note{
+    border-left:2px solid var(--parchment-deep);
+    padding:6px 0 6px 20px;
+    margin-top:8px;
+  }
+  .margin-note .who{
+    display:block;
+    font-family:'IM Fell English SC',serif;
+    font-size:11.5px;
+    letter-spacing:.2em;
+    color:var(--gold);
+    margin-bottom:6px;
+  }
+
+  /* warning plate */
+  .plate.warn .plate-figure{background:#F3EBDF;border-color:#DCC9B8;}
+  .caution{
+    display:inline-block;
+    font-family:'IM Fell English SC',serif;
+    font-size:12px;
+    letter-spacing:.24em;
+    color:var(--rosewood);
+    border:1px solid var(--rosewood);
+    padding:5px 14px;
+    margin-bottom:16px;
+  }
+
+  /* ---------- colophon ---------- */
+  .colophon{
+    text-align:center;
+    padding:70px 28px 60px;
+  }
+  .colophon .seed-rule{margin:0 auto 34px;}
+  .colophon h3{
+    font-family:'IM Fell English',serif;
+    font-weight:400;
+    font-size:27px;
+    margin-bottom:14px;
+  }
+  .colophon p{
+    max-width:430px;
+    margin:0 auto 10px;
+    color:var(--sepia);
+    font-size:17px;
+  }
+  .colophon .cta{
+    display:inline-block;
+    margin-top:26px;
+    font-family:'IM Fell English SC',serif;
+    letter-spacing:.18em;
+    font-size:14px;
+    color:var(--parchment);
+    background:var(--ink);
+    padding:13px 30px;
+    text-decoration:none;
+  }
+  .colophon .qr{
+    width:88px;height:88px;
+    border:1px solid var(--ink);
+    margin:30px auto 8px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:11px;color:var(--sepia);
+    font-family:'EB Garamond',serif;
+    font-style:italic;
+    padding:8px;
+  }
+  .colophon .fine{
+    font-size:13px;
+    color:var(--sepia);
+    margin-top:22px;
+    font-style:italic;
+  }
+
+  @keyframes drift{
+    0%{transform:translate(0,0) rotate(0deg);opacity:.9;}
+    100%{transform:translate(26px,-34px) rotate(24deg);opacity:0;}
+  }
+  .seed{animation:drift 7s ease-in-out infinite;}
+  .seed.s2{animation-delay:2.3s;}
+  .seed.s3{animation-delay:4.6s;}
+  @media (prefers-reduced-motion:reduce){.seed{animation:none;}}
+
+  /* ---------- sealed plates & garden form ---------- */
+  .sealed{padding:64px 28px;border-bottom:1px solid var(--parchment-deep);text-align:center;}
+  .sealed-tag{display:inline-block;font-family:'IM Fell English SC',serif;font-size:12px;letter-spacing:.24em;color:var(--gold);border:1px solid var(--gold);padding:5px 14px;margin-bottom:22px;}
+  .sealed ul{list-style:none;margin:8px 0 24px;}
+  .sealed li{font-family:'IM Fell English',serif;font-size:22px;line-height:2;}
+  .sealed li i{color:var(--sepia);font-size:16px;}
+  .sealed p{max-width:430px;margin:0 auto;color:var(--sepia);font-size:17px;}
+  .garden-form{margin:30px auto 0;display:flex;gap:10px;max-width:430px;flex-wrap:wrap;justify-content:center;}
+  .garden-form input[type=email]{flex:1 1 230px;padding:12px 14px;border:1px solid var(--ink);background:#FBF7EC;font-family:'EB Garamond',serif;font-size:16px;color:var(--ink);}
+  .garden-form button{font-family:'IM Fell English SC',serif;letter-spacing:.18em;font-size:14px;color:var(--parchment);background:var(--ink);border:none;padding:13px 26px;cursor:pointer;}
+  .garden-form button:hover{background:var(--sepia);}
+  .form-success{display:none;margin-top:18px;font-style:italic;color:var(--sorrowroot);}
+  .form-success.is-visible{display:block;}
+  .form-error{margin-top:14px;font-style:italic;color:var(--rosewood);}
+</style>
+</head>
+<body>
+
+<!-- ======================= COVER ======================= -->
+<header class="cover">
+  <p class="eyebrow smallcaps">From the library beneath the garden</p>
+  <h1>A Field Guide<br>to the Flora of Sopatra</h1>
+  <div class="rule"></div>
+  <p class="sub">Being a gardener's record of healing plants, kept for his daughter — with his notes in the margins.</p>
+
+  <svg width="150" height="130" viewBox="0 0 150 130" role="img" aria-label="Engraved sorrowroot bloom with exposed roots">
+    <g fill="none" stroke="#2E3323" stroke-width="1.1" stroke-linecap="round">
+      <path d="M75 62 L75 96"/>
+      <path d="M75 96 C 70 104, 60 108, 52 118" />
+      <path d="M75 96 C 80 104, 90 108, 98 118" />
+      <path d="M75 96 C 74 108, 72 114, 71 124" />
+      <path d="M75 96 C 76 108, 80 116, 83 122" />
+      <path d="M63 111 C 60 114, 57 115, 54 116" stroke-width="0.7"/>
+      <path d="M88 112 C 91 114, 93 115, 95 117" stroke-width="0.7"/>
+    </g>
+    <g fill="none" stroke="#5D5F92" stroke-width="1.2" stroke-linecap="round">
+      <path d="M75 62 C 62 58, 54 46, 58 32 C 66 36, 73 44, 75 56"/>
+      <path d="M75 62 C 88 58, 96 46, 92 32 C 84 36, 77 44, 75 56"/>
+      <path d="M75 62 C 68 50, 68 36, 75 24 C 82 36, 82 50, 75 62"/>
+      <path d="M75 62 C 58 64, 48 58, 44 48 C 56 46, 68 52, 75 60" stroke-width="0.9"/>
+      <path d="M75 62 C 92 64, 102 58, 106 48 C 94 46, 82 52, 75 60" stroke-width="0.9"/>
+    </g>
+    <g stroke="#5D5F92" stroke-width="0.55">
+      <path d="M75 30 L75 56" fill="none"/>
+      <path d="M62 40 C 68 44, 72 50, 74 56" fill="none"/>
+      <path d="M88 40 C 82 44, 78 50, 76 56" fill="none"/>
+    </g>
+    <circle cx="75" cy="62" r="3.2" fill="#9C7C3C"/>
+    <g fill="none" stroke="#2E3323" stroke-width="0.9">
+      <path d="M75 78 C 66 76, 60 78, 55 74"/>
+      <path d="M55 74 C 58 71, 63 71, 67 73" />
+      <path d="M75 84 C 84 82, 90 84, 95 80"/>
+      <path d="M95 80 C 92 77, 87 77, 83 79"/>
+    </g>
+  </svg>
+
+  <p class="compiled">Compiled from the notebooks of a keeper of the Vale<br><b>The Windsown Trilogy · Lesley Hanson</b></p>
+</header>
+
+<!-- ======================= EPIGRAPH ======================= -->
+<section class="epigraph">
+  <p>"Into every garden, a little rain must fall. It is the only way for things to grow."</p>
+  <span>His first lesson</span>
+</section>
+
+<main class="page">
+
+<!-- ======================= PLATE I — SILVERLEAF ======================= -->
+<article class="plate">
+  <div class="plate-head">
+    <h2>Silverleaf</h2>
+    <span class="plate-num">Plate I</span>
+  </div>
+  <p class="binomial">Argyrophyllum lene · the quiet mend</p>
+  <div class="plate-body">
+    <figure class="plate-figure">
+      <svg width="180" height="190" viewBox="0 0 180 190" role="img" aria-label="Engraved silverleaf sprig">
+        <g fill="none" stroke="#5F6857" stroke-width="1.1" stroke-linecap="round">
+          <path d="M90 178 C 88 140, 90 100, 96 52"/>
+          <path d="M92 150 C 74 146, 60 134, 56 118 C 74 120, 86 130, 92 142"/>
+          <path d="M91 122 C 108 118, 121 106, 124 90 C 107 92, 95 102, 91 114"/>
+          <path d="M93 96 C 76 92, 64 80, 61 64 C 78 66, 89 76, 93 88"/>
+          <path d="M95 70 C 110 66, 121 55, 123 40 C 108 42, 98 51, 95 62"/>
+          <path d="M96 52 C 92 40, 94 30, 100 20 C 105 30, 103 42, 97 50"/>
+        </g>
+        <g fill="none" stroke="#8A9382" stroke-width="0.55">
+          <path d="M60 119 C 70 122, 80 130, 89 140"/>
+          <path d="M120 91 C 110 94, 100 102, 93 112"/>
+          <path d="M65 66 C 75 69, 84 77, 91 87"/>
+          <path d="M119 42 C 110 45, 101 53, 96 61"/>
+          <path d="M99 24 C 98 32, 97 40, 96 48"/>
+        </g>
+      </svg>
+      <figcaption>Gathered where the light is easy.</figcaption>
+    </figure>
+    <div>
+      <p class="use-line">"Silverleaf for hurts of the flesh."</p>
+      <dl class="field">
+        <dt>Habitat</dt><dd>Small gray-green patches hidden among the garden's vivid hues; easily overlooked, never far.</dd>
+        <dt>Preparation</dt><dd>A single leaf, pressed whole against the wound. Expect a sting, then nothing — not even a mark.</dd>
+        <dt>Virtue</dt><dd>Closes cuts, scrapes, and thorn-wounds within moments. Works no deeper than the skin.</dd>
+      </dl>
+      <div class="margin-note">
+        <span class="who">In his hand</span>
+        <p class="hand">A little goes a long way, little one. Most true things do.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ======================= PLATE II — MOONPETAL ======================= -->
+<article class="plate">
+  <div class="plate-head">
+    <h2>Moonpetal</h2>
+    <span class="plate-num">Plate II</span>
+  </div>
+  <p class="binomial">Petalum lunaris · the fever's ebb</p>
+  <div class="plate-body">
+    <figure class="plate-figure">
+      <svg width="180" height="190" viewBox="0 0 180 190" role="img" aria-label="Engraved moonpetal bloom, cupped like a crescent">
+        <g fill="none" stroke="#5F6857" stroke-width="1.1" stroke-linecap="round">
+          <path d="M90 178 C 90 150, 88 122, 90 92"/>
+          <path d="M90 140 C 78 138, 70 130, 68 120 C 78 122, 86 128, 90 134"/>
+        </g>
+        <g fill="none" stroke="#77798F" stroke-width="1.2" stroke-linecap="round">
+          <path d="M90 92 C 64 88, 52 66, 58 44 C 60 62, 72 78, 90 86"/>
+          <path d="M90 92 C 116 88, 128 66, 122 44 C 120 62, 108 78, 90 86"/>
+          <path d="M90 86 C 78 72, 76 54, 84 38 C 90 52, 92 70, 90 84"/>
+          <path d="M90 86 C 102 72, 104 54, 96 38 C 90 52, 88 70, 90 84"/>
+        </g>
+        <g fill="none" stroke="#77798F" stroke-width="0.55">
+          <path d="M62 48 C 68 62, 78 74, 88 82"/>
+          <path d="M118 48 C 112 62, 102 74, 92 82"/>
+        </g>
+        <circle cx="90" cy="89" r="2.6" fill="#9C7C3C"/>
+        <path d="M126 30 A 14 14 0 1 1 118 22 A 11 11 0 0 0 126 30" fill="none" stroke="#77798F" stroke-width="0.8"/>
+      </svg>
+      <figcaption>Opens only after dusk.</figcaption>
+    </figure>
+    <div>
+      <p class="use-line">"Moonpetal for fever."</p>
+      <dl class="field">
+        <dt>Habitat</dt><dd>Pale cupped blooms along the night paths, keeping their own hours; shy of full daylight.</dd>
+        <dt>Preparation</dt><dd>Steep three petals in water warmed, never boiled. Give by the spoonful until the brow cools.</dd>
+        <dt>Virtue</dt><dd>Draws heat the way the moon draws tide — gently, and always toward rest.</dd>
+      </dl>
+      <div class="margin-note">
+        <span class="who">In his hand</span>
+        <p class="hand">Fevers break at night. So does most stubbornness. Sit with her till morning anyway.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ======================= PLATE III — SORROWROOT ======================= -->
+<article class="plate">
+  <div class="plate-head">
+    <h2>Sorrowroot</h2>
+    <span class="plate-num">Plate III</span>
+  </div>
+  <p class="binomial">Radix maeroris · the flower given twice</p>
+  <div class="plate-body">
+    <figure class="plate-figure">
+      <svg width="180" height="200" viewBox="0 0 180 200" role="img" aria-label="Engraved sorrowroot with its roots drawn as carefully as its bloom">
+        <g fill="none" stroke="#5F6857" stroke-width="1.1" stroke-linecap="round">
+          <path d="M90 66 L90 128"/>
+          <path d="M90 100 C 76 98, 66 90, 62 80 C 74 82, 84 90, 90 96"/>
+        </g>
+        <g fill="none" stroke="#5D5F92" stroke-width="1.2" stroke-linecap="round">
+          <path d="M90 66 C 74 62, 64 48, 68 32 C 78 38, 86 50, 90 60"/>
+          <path d="M90 66 C 106 62, 116 48, 112 32 C 102 38, 94 50, 90 60"/>
+          <path d="M90 66 C 82 52, 82 38, 90 26 C 98 38, 98 52, 90 66"/>
+          <path d="M90 64 C 72 66, 60 62, 54 52 C 68 50, 82 56, 90 62"/>
+          <path d="M90 64 C 108 66, 120 62, 126 52 C 112 50, 98 56, 90 62"/>
+        </g>
+        <circle cx="90" cy="66" r="3" fill="#9C7C3C"/>
+        <g fill="none" stroke="#2E3323" stroke-width="1" stroke-linecap="round">
+          <path d="M90 128 C 82 138, 70 142, 60 154"/>
+          <path d="M90 128 C 98 138, 110 142, 120 154"/>
+          <path d="M90 128 C 88 144, 84 156, 82 168"/>
+          <path d="M90 128 C 94 144, 98 158, 102 166"/>
+          <path d="M90 128 C 90 148, 90 162, 90 176"/>
+          <path d="M73 143 C 68 147, 63 149, 58 150" stroke-width="0.7"/>
+          <path d="M107 143 C 112 147, 117 149, 122 150" stroke-width="0.7"/>
+          <path d="M86 156 C 82 160, 78 162, 75 163" stroke-width="0.7"/>
+        </g>
+        <path d="M52 186 C 78 180, 102 180, 128 186" fill="none" stroke="#5F6857" stroke-width="0.6" stroke-dasharray="2 3"/>
+      </svg>
+      <figcaption>The root runs deeper than the grief.</figcaption>
+    </figure>
+    <div>
+      <p class="use-line">"Sorrowroot for wounds of the heart."</p>
+      <dl class="field">
+        <dt>Habitat</dt><dd>Rare. It does not grow where it is convenient; it grows where it is needed.</dd>
+        <dt>Preparation</dt><dd>None. It is not brewed, ground, or pressed to the skin. It is given — from one hand into another. This is the whole of the preparation, and the hardest part.</dd>
+        <dt>Virtue</dt><dd>Works slowly, at the root of a hurt no leaf can reach. Often mistaken, at first, for an insult.</dd>
+      </dl>
+      <div class="margin-note">
+        <span class="who">In his hand</span>
+        <p class="hand">One day someone will hand you this flower, and you will want to refuse it. Look at the hand a long moment before you do.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ======================= SEALED PLATES ======================= -->
+<section class="sealed">
+  <span class="sealed-tag">The remaining plates are sealed</span>
+  <ul>
+    <li>Plate IV &mdash; Corpse flower <i>&middot; Flos rapax</i></li>
+    <li>Plate V &mdash; Shagbark hickory <i>&middot; Carya solacium</i></li>
+    <li>Plate VI &mdash; Memory bloom <i>&middot; Taraxacum memoriae</i></li>
+  </ul>
+  <p>He did not leave every page where anyone might find it. The borders, the waiting tree, the field that remembers &mdash; those he kept for hands he trusted.</p>
+</section>
+
+</main>
+
+<!-- ======================= COLOPHON ======================= -->
+<footer class="colophon">
+  <svg class="seed-rule" width="200" height="24" viewBox="0 0 200 24" role="img" aria-label="Row of drifting seeds">
+    <g fill="none" stroke="#9C7C3C" stroke-width="0.7">
+      <path d="M10 12 H 190" stroke-dasharray="2 4"/>
+      <circle cx="60" cy="12" r="2.6"/><circle cx="100" cy="12" r="2.6"/><circle cx="140" cy="12" r="2.6"/>
+    </g>
+  </svg>
+  <h3>The garden keeps its own records.</h3>
+  <p>The keeper of these notes had one daughter, one library, and one visitor he had been expecting all her life.</p>
+  <p>Her story begins in <i>Sorrowroot</i>, book one of the Windsown Trilogy.</p>
+  <form class="garden-form" action="https://assets.mailerlite.com/jsonp/2463515/forms/192358580453639235/subscribe" method="post" data-ml-form>
+    <input type="email" name="fields[email]" placeholder="you@example.com" aria-label="Email address" autocomplete="email" required>
+    <button type="submit">Join the reader garden</button>
+  </form>
+  <p class="form-success">You&rsquo;re in the garden &mdash; the complete guide is on its way to your inbox.</p>
+  <p class="fine">Those who join the letters receive the complete guide &mdash; including the plates her father kept to himself.</p>
+  <p class="fine"><a href="index.html" style="color:var(--sepia);">&larr; lesleyhanson.com</a></p>
+</footer>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>

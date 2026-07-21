@@ -16,6 +16,8 @@ images/bloom.svg   Sorrowroot flower favicon
 images/meadow.svg  Twilight meadow illustration (rabbit, blooms, fireflies)
 images/author.jpg  Author photo (cropped from the mood-board portrait)
 images/cover.jpg   Book cover (optimized from the original in ~/Downloads)
+flora.html         Field Guide to the Flora of Sopatra — public teaser (Plates I–III + signup)
+flora-complete-747.html  Complete six-plate guide — unlisted (noindex), the newsletter welcome gift
 ```
 
 Open `index.html` in a browser to preview. No build step — just static files.
